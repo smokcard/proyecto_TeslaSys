@@ -1,0 +1,2 @@
+Diseño Responsivo  Si alguien abre el formulario desde un celular, los botones pasarán automáticamente a estar uno debajo del otro ocupando todo el ancho para que sean más fáciles de tocar.
+
