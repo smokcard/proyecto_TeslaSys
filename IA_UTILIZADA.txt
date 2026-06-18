@@ -1,2 +1,10 @@
+Herramienta utilizada
+GitHub Copilot
+
+1 Prompt utilizado
 Diseño Responsivo  Si alguien abre el formulario desde un celular, los botones pasarán automáticamente a estar uno debajo del otro ocupando todo el ancho para que sean más fáciles de tocar.
 
+Resultado aplicado
+me entrego una pagina que se adapta a los celulares 
+
+2 

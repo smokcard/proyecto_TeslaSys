@@ -1,11 +1,220 @@
-@media (max-width: 600px) {
-	#miFormulario button {
-		display: block;
-		width: 100%;
-		box-sizing: border-box;
-	}
+* {
+    box-sizing: border-box;
+}
 
-	#miFormulario button + button {
-		margin-top: 10px;
-	}
+html {
+    color-scheme: light;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 20px 40px;
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01)),
+        #eef2f7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1e293b;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+}
+
+.layout-principal {
+    width: min(100%, 1180px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.container,
+.panel-registros {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.container {
+    width: min(100%, 520px);
+    padding: 28px;
+    flex: 1 1 420px;
+}
+
+.panel-registros {
+    width: min(100%, 620px);
+    padding: 28px;
+    flex: 1 1 520px;
+}
+
+.container h3,
+.panel-registros h2 {
+    margin: 0 0 20px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+#miFormulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#miFormulario label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+#miFormulario input,
+#miFormulario select,
+#miFormulario textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#miFormulario input:focus,
+#miFormulario select:focus,
+#miFormulario textarea:focus {
+    border-color: #1d4ed8;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+}
+
+#miFormulario textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#miFormulario button {
+    width: 100%;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#miFormulario button:hover {
+    transform: translateY(-1px);
+}
+
+#miFormulario button:active {
+    transform: translateY(0);
+}
+
+#miFormulario button[type="submit"] {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: #ffffff;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+}
+
+#miFormulario button[type="reset"] {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+#errores {
+    min-height: 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #b91c1c;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+}
+
+#tablaRegistros {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+#tablaRegistros thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #0f172a;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+#tablaRegistros tbody td {
+    padding: 14px 16px;
+    border-top: 1px solid #e2e8f0;
+    vertical-align: top;
+    color: #334155;
+}
+
+#tablaRegistros tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+#tablaRegistros tbody tr:hover {
+    background: #eff6ff;
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 20px 14px 32px;
+    }
+
+    .layout-principal {
+        flex-direction: column;
+    }
+
+    .container,
+    .panel-registros {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #miFormulario button {
+        display: block;
+        width: 100%;
+    }
+
+    #miFormulario button + button {
+        margin-top: 10px;
+    }
+
+    .container,
+    .panel-registros {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    #tablaRegistros thead th,
+    #tablaRegistros tbody td {
+        padding: 12px 14px;
+    }
 }
