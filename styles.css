@@ -4,84 +4,113 @@
 
 html {
     color-scheme: light;
-    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: 32px 20px 40px;
-    background:
-        radial-gradient(circle at top left, rgba(29, 78, 216, 0.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.08), transparent 32%),
-        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01)), #eef2f7;
     font-family: "Segoe UI", Arial, sans-serif;
     color: #1e293b;
 }
 
-.header {
-    width: min(100%, 1180px);
-    padding: 20px 24px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(12px);
+.aplicacion-marco {
+    width: min(100%, 1380px);
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-nav {
+.header-moderno {
     width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-h2 {
+.logo-teslasys {
+    position: absolute;
+    left: 0;
+    font-weight: 800;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header-moderno h2 {
     margin: 0;
     text-align: center;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
     font-weight: 700;
-    letter-spacing: -0.02em;
     color: #0f172a;
+    padding: 0 150px;
 }
 
 .layout-principal {
-    width: min(100%, 1180px);
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 30px;
     align-items: flex-start;
-    justify-content: center;
-}
-
-.container,
-.panel-registros {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 24px;
-    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.09);
-    overflow: hidden;
 }
 
 .container {
-    width: min(100%, 520px);
-    padding: 28px;
-    flex: 1 1 420px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    width: min(100%, 400px);
+    padding: 24px;
+    flex: 1 1 350px;
 }
 
 .panel-registros {
-    width: min(100%, 620px);
-    padding: 28px;
-    flex: 1 1 520px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    width: min(100%, 850px);
+    padding: 24px;
+    flex: 2 1 600px;
 }
 
-.container h3,
-.panel-registros h2 {
+.container h3 {
     margin: 0 0 20px;
     font-size: 1.15rem;
     font-weight: 700;
     color: #0f172a;
+}
+
+.encabezado-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1a56db;
+    margin-bottom: 24px;
+}
+
+.encabezado-panel i {
+    font-size: 1.5rem;
+    border: 2px solid #1a56db;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.encabezado-panel h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 #miFormulario {
@@ -100,26 +129,25 @@ h2 {
 #miFormulario select,
 #miFormulario textarea {
     width: 100%;
-    padding: 13px 14px;
-    border: 1px solid #d6deea;
-    border-radius: 14px;
-    background: #f8fafc;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
     color: #0f172a;
     font: inherit;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #miFormulario input:focus,
 #miFormulario select:focus,
 #miFormulario textarea:focus {
     border-color: #1d4ed8;
-    background: #ffffff;
     box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
-    transform: translateY(-1px);
 }
 
 #miFormulario textarea {
+    width: 100%;
     min-height: 120px;
     resize: vertical;
 }
@@ -128,15 +156,16 @@ h2 {
     width: 100%;
     padding: 12px 16px;
     border: 0;
-    border-radius: 14px;
+    border-radius: 10px;
     font: inherit;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: transform 0.15s ease, opacity 0.2s ease;
 }
 
 #miFormulario button:hover {
     transform: translateY(-1px);
+    opacity: 0.9;
 }
 
 #miFormulario button:active {
@@ -146,12 +175,12 @@ h2 {
 #miFormulario button[type="submit"] {
     background: linear-gradient(135deg, #0f172a, #1d4ed8);
     color: #ffffff;
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+    margin-top: 5px;
 }
 
-#miFormulario button[type="reset"] {
-    background: linear-gradient(180deg, #edf2f7, #e2e8f0);
-    color: #0f172a;
+.btn-limpiar {
+    background: #e2e8f0;
+    color: #334155;
 }
 
 #errores {
@@ -159,86 +188,168 @@ h2 {
     font-size: 0.92rem;
     line-height: 1.5;
     color: #b91c1c;
-    padding: 10px 12px;
-    border-radius: 12px;
-    background: rgba(185, 28, 28, 0.06);
+    margin-top: 15px;
+    font-weight: bold;
+    display: none;
 }
 
-.tabla-contenedor {
+#errores.mostrar {
+    display: block;
+}
+
+.tabla-moderna-contenedor {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
     overflow-x: auto;
-    border-radius: 14px;
-    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
 }
 
 #tablaRegistros {
     width: 100%;
     border-collapse: collapse;
-    background: #ffffff;
-}
-
-#tablaRegistros thead th {
-    padding: 14px 16px;
     text-align: left;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    min-width: 650px;
+}
+
+#tablaRegistros thead {
+    background-color: #0b2a5c;
     color: #ffffff;
-    white-space: nowrap;
 }
 
-#tablaRegistros tbody td {
-    padding: 14px 16px;
-    border-top: 1px solid #e2e8f0;
-    vertical-align: top;
-    color: #334155;
+#tablaRegistros th {
+    padding: 18px 16px;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-#tablaRegistros tbody tr:nth-child(even) {
-    background: #f8fafc;
+#tablaRegistros td {
+    padding: 16px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+    vertical-align: middle;
+    font-size: 0.95rem;
 }
 
-#tablaRegistros tbody tr:hover {
+#tablaRegistros tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.col-desc {
+    max-width: 200px;
+    line-height: 1.4;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.badge-hardware {
     background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.badge-software {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+.badge-redes {
+    background: #f3e8ff;
+    color: #9333ea;
+    border: 1px solid #e9d5ff;
+}
+
+.badge-seguridad {
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+}
+
+.btn-eliminar {
+    background: #ffffff;
+    border: 1px solid #fca5a5;
+    color: #ef4444;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+    transform: scale(1.05);
+}
+
+.info-footer {
+    background: #eff6ff;
+    color: #1e40af;
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    border: 1px solid #bfdbfe;
+}
+
+.info-footer i {
+    font-size: 1.2rem;
+}
+
+.footer-soporte {
+    width: 100%;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 2px solid #f1f5f9;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 @media (max-width: 900px) {
     body {
-        padding: 20px 14px 32px;
+        padding: 15px;
     }
 
-    .header {
-        padding: 18px 18px;
+    .aplicacion-marco {
+        padding: 20px;
+        border-radius: 16px;
+        gap: 20px;
     }
 
-    .layout-principal {
+    .header-moderno {
         flex-direction: column;
     }
-
-    .container,
-    .panel-registros {
-        width: 100%;
+    
+    .logo-teslasys {
+        position: static;
+        margin-bottom: 12px;
     }
-}
-
-@media (max-width: 600px) {
-    #miFormulario button {
-        display: block;
-        width: 100%;
-    }
-
-    #miFormulario button + button {
-        margin-top: 10px;
+    
+    .header-moderno h2 {
+        padding: 0;
+        font-size: 1.3rem;
     }
 
     .container,
     .panel-registros {
+        width: 100%;
         padding: 20px;
-        border-radius: 18px;
-    }
-
-    #tablaRegistros thead th,
-    #tablaRegistros tbody td {
-        padding: 12px 14px;
     }
 }

@@ -11,4 +11,4 @@ me entrego una pagina que se adapta a los celulares
 Escribe el código CSS necesario para darle un diseño moderno, limpio y corporativo. Usa una paleta de colores basada en [COLOR 1, ej: azul marino] y [COLOR 2, ej: gris claro]. Aplica bordes redondeados, sombras suaves (`box-shadow`) para dar profundidad a las cajas, y utiliza Flexbox para la distribución de los elementos. El diseño debe verse como un dashboard profesional."
 
 Resultado aplicado
-creo el codigo css dandel un diseño limpio y Responsivo
+creo el codigo css un diseño limpio y Responsivo
