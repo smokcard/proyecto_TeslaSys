@@ -4,6 +4,7 @@
 
 html {
     color-scheme: light;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -12,13 +13,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
     padding: 32px 20px 40px;
     background:
-        linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01)),
-        #eef2f7;
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.08), transparent 32%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
     font-family: "Segoe UI", Arial, sans-serif;
     color: #1e293b;
+}
+
+.header {
+    width: min(100%, 1180px);
+    padding: 20px 24px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    width: 100%;
 }
 
 h2 {
@@ -43,8 +59,8 @@ h2 {
 .panel-registros {
     background: #ffffff;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.09);
     overflow: hidden;
 }
 
@@ -84,14 +100,14 @@ h2 {
 #miFormulario select,
 #miFormulario textarea {
     width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
+    padding: 13px 14px;
+    border: 1px solid #d6deea;
+    border-radius: 14px;
     background: #f8fafc;
     color: #0f172a;
     font: inherit;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.15s ease;
 }
 
 #miFormulario input:focus,
@@ -100,6 +116,7 @@ h2 {
     border-color: #1d4ed8;
     background: #ffffff;
     box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    transform: translateY(-1px);
 }
 
 #miFormulario textarea {
@@ -111,7 +128,7 @@ h2 {
     width: 100%;
     padding: 12px 16px;
     border: 0;
-    border-radius: 12px;
+    border-radius: 14px;
     font: inherit;
     font-weight: 700;
     cursor: pointer;
@@ -129,11 +146,11 @@ h2 {
 #miFormulario button[type="submit"] {
     background: linear-gradient(135deg, #0f172a, #1d4ed8);
     color: #ffffff;
-    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
 }
 
 #miFormulario button[type="reset"] {
-    background: #e2e8f0;
+    background: linear-gradient(180deg, #edf2f7, #e2e8f0);
     color: #0f172a;
 }
 
@@ -142,6 +159,9 @@ h2 {
     font-size: 0.92rem;
     line-height: 1.5;
     color: #b91c1c;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(185, 28, 28, 0.06);
 }
 
 .tabla-contenedor {
@@ -162,7 +182,7 @@ h2 {
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    background: #0f172a;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
     color: #ffffff;
     white-space: nowrap;
 }
@@ -185,6 +205,10 @@ h2 {
 @media (max-width: 900px) {
     body {
         padding: 20px 14px 32px;
+    }
+
+    .header {
+        padding: 18px 18px;
     }
 
     .layout-principal {
@@ -210,7 +234,7 @@ h2 {
     .container,
     .panel-registros {
         padding: 20px;
-        border-radius: 16px;
+        border-radius: 18px;
     }
 
     #tablaRegistros thead th,
