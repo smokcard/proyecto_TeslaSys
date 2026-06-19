@@ -12,3 +12,24 @@ Escribe el código CSS necesario para darle un diseño moderno, limpio y corpora
 
 Resultado aplicado
 creo el codigo css un diseño limpio y Responsivo
+
+3 Prompt utilizado
+añade colores y el fondo mas vivos y modernos 
+
+Resultado aplicado
+
+colores mejorados y un fondo degradado
+
+4 Prompt utilizado
+crea un boton en la parte superior derecha que lo envie a un chat de asistencia 
+
+Resultado aplicado
+
+me entrego un boton de chat de asistencia pero me envia a whatsapp 
+
+4 Prompt utilizado
+que no me envie a whatsapp sino que simule un asistente de ia
+
+Resultado aplicado
+
+me creo un chat simulando con ia

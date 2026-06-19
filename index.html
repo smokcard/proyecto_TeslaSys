@@ -16,6 +16,10 @@
         <img src="logo.png" alt="Logo TeslaSys Chile">
     </div>
     <h2>Sistema de Registro de Solicitudes de Soporte</h2>
+        <button type="button" class="btn-chat-asistencia" id="btnChatAsistencia">
+        <i class="fa-solid fa-comments"></i>
+        Chat de asistencia
+        </button>
         </header>
 
         <div class="layout-principal">
@@ -85,6 +89,32 @@
             TeslaSys Chile - Área de Soporte TI
         </footer>
 
+        <section class="asistente-panel" id="asistentePanel" aria-hidden="true">
+            <div class="asistente-panel__cabecera">
+                <div>
+                    <p class="asistente-panel__estado">Asistente IA</p>
+                    <h3>Chat de asistencia</h3>
+                </div>
+                <button type="button" class="asistente-panel__cerrar" id="cerrarAsistente" aria-label="Cerrar chat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="asistente-panel__mensajes" id="mensajesAsistente">
+                <div class="mensaje mensaje--ia">
+                    Hola, soy el asistente virtual. Puedo ayudarte con el formulario, los campos obligatorios o el registro de solicitudes.
+                </div>
+            </div>
+            <div class="asistente-panel__sugerencias">
+                <button type="button" class="sugerencia-chip" data-mensaje="¿Qué campos son obligatorios?">Campos obligatorios</button>
+                <button type="button" class="sugerencia-chip" data-mensaje="¿Cómo registro una solicitud?">Cómo registrar</button>
+                <button type="button" class="sugerencia-chip" data-mensaje="¿Cómo elimino una solicitud?">Eliminar solicitud</button>
+            </div>
+            <form class="asistente-panel__formulario" id="formAsistente">
+                <input type="text" id="entradaAsistente" placeholder="Escribe tu consulta..." autocomplete="off">
+                <button type="submit" class="asistente-panel__enviar">Enviar</button>
+            </form>
+        </section>
+
     </div>
 
     <script>
@@ -105,6 +135,84 @@
             renumerarFilas();
             actualizarTotal();
         }
+
+        const btnChatAsistencia = document.getElementById('btnChatAsistencia');
+        const asistentePanel = document.getElementById('asistentePanel');
+        const cerrarAsistente = document.getElementById('cerrarAsistente');
+        const mensajesAsistente = document.getElementById('mensajesAsistente');
+        const formAsistente = document.getElementById('formAsistente');
+        const entradaAsistente = document.getElementById('entradaAsistente');
+
+        function abrirAsistente() {
+            asistentePanel.classList.add('asistente-panel--visible');
+            asistentePanel.setAttribute('aria-hidden', 'false');
+            entradaAsistente.focus();
+        }
+
+        function cerrarChatAsistente() {
+            asistentePanel.classList.remove('asistente-panel--visible');
+            asistentePanel.setAttribute('aria-hidden', 'true');
+        }
+
+        function responderAsistente(mensaje) {
+            const texto = mensaje.toLowerCase();
+
+            if (texto.includes('obligatorio') || texto.includes('campos')) {
+                return 'Los campos obligatorios son: Nombre, Correo Electrónico, Área de Trabajo, Tipo de Solicitud y Descripción.';
+            }
+
+            if (texto.includes('registr') || texto.includes('solicitud')) {
+                return 'Completa el formulario y presiona "Registrar Solicitud". La solicitud aparecerá en la tabla inferior.';
+            }
+
+            if (texto.includes('elimin') || texto.includes('borrar')) {
+                return 'Cada solicitud tiene un botón de eliminar al final de la fila para quitarla de la tabla.';
+            }
+
+            if (texto.includes('error') || texto.includes('valid')) {
+                return 'Si ves errores, revisa que no queden campos vacíos y vuelve a enviar el formulario.';
+            }
+
+            return 'Puedo ayudarte con el registro, la validación de campos o la eliminación de solicitudes. Prueba con una de las sugerencias.';
+        }
+
+        function agregarMensaje(texto, tipo) {
+            const mensaje = document.createElement('div');
+            mensaje.className = `mensaje mensaje--${tipo}`;
+            mensaje.textContent = texto;
+            mensajesAsistente.appendChild(mensaje);
+            mensajesAsistente.scrollTop = mensajesAsistente.scrollHeight;
+        }
+
+        btnChatAsistencia.addEventListener('click', abrirAsistente);
+        cerrarAsistente.addEventListener('click', cerrarChatAsistente);
+
+        document.querySelectorAll('.sugerencia-chip').forEach((chip) => {
+            chip.addEventListener('click', () => {
+                const texto = chip.getAttribute('data-mensaje');
+                agregarMensaje(texto, 'usuario');
+                agregarMensaje(responderAsistente(texto), 'ia');
+            });
+        });
+
+        formAsistente.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const texto = entradaAsistente.value.trim();
+
+            if (!texto) {
+                return;
+            }
+
+            agregarMensaje(texto, 'usuario');
+            agregarMensaje(responderAsistente(texto), 'ia');
+            entradaAsistente.value = '';
+        });
+
+        asistentePanel.addEventListener('click', function(event) {
+            if (event.target === asistentePanel) {
+                cerrarChatAsistente();
+            }
+        });
 
         document.getElementById('miFormulario').addEventListener('submit', function(event) {
             event.preventDefault();
